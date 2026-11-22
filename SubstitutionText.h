@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "PlainText.h"
+#include "FileHelper.h"
 
 class SubstitutionText : public PlainText
 {

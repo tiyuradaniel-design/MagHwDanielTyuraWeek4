@@ -3,6 +3,7 @@
 #include <string>
 
 #include "SubstitutionText.h"
+#include "FileHelper.h"
 #include "PlainText.h"
 
 class SubstitutionText : public PlainText
@@ -23,26 +24,13 @@ public:
 	}
 	static std::string encrypt(std::string text, std::string dictionaryFileName) 
 	{
-		std::ifstream file(dictionaryFileName);
-		std::string line;
-		std::string dictionary = "";
-
-		while (std::getline(file, line)) 
-		{
-			if (line.length() >= 3) 
-			{
-				dictionary += line[0];
-				dictionary += line[2];
-			}
-		}
-
-		file.close();
+		std::string dictionary = FileHelper::readFileToString(dictionaryFileName);
 
 		std::string result = text;
 
 		for (int i = 0; i < result.length(); i++)
 		{
-			for (int j = 0; j < dictionary.length(); j += 2)
+			for (int j = 0; j < dictionary.length(); j += 3)
 			{
 				if (result[i] == dictionary[j])
 				{
@@ -55,26 +43,13 @@ public:
 	}
 	static std::string decrypt(std::string text, std::string dictionaryFileName) 
 	{
-		std::ifstream file(dictionaryFileName);
-		std::string line;
-		std::string dictionary = "";
-
-		while (std::getline(file, line)) 
-		{
-			if (line.length() >= 3) 
-			{
-				dictionary += line[0];
-				dictionary += line[2];
-			}
-		}
-
-		file.close();
+		std::string dictionary = FileHelper::readFileToString(dictionaryFileName);
 
 		std::string result = text;
 
 		for (int i = 0; i < result.length(); i++)
 		{
-			for (int j = 0; j < dictionary.length(); j += 2)
+			for (int j = 0; j < dictionary.length(); j += 3)
 			{
 				if (result[i] == dictionary[j + 1])
 				{
