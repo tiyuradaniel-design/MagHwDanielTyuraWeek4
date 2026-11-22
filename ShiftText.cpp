@@ -33,7 +33,6 @@ public:
 				result[i] = 'a' + (result[i] - 'a' + key) % 26;
 			}
 		}
-		this->isEncrypted = true;
 		return result;
 	}
 	static std::string decrypt(std::string text, int key)
@@ -50,16 +49,17 @@ public:
 				result[i] = 'a' + (result[i] - 'a' - key + 26) % 26;
 			}
 		}
-		this->isEncrypted = false;
 		return result;
 	}
 
 	std::string encrypt()
 	{
+		this->isEncrypted = true;
 		return encrypt(this->text, this->_key);
 	}
 	std::string decrypt()
 	{
+		this->isEncrypted = false;
 		return decrypt(this->text, this->_key);
 	}
 
