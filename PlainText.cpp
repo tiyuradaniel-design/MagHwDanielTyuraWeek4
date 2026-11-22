@@ -5,6 +5,7 @@
 class PlainText
 {
 protected:
+	static int numOfTexts;
 	std::string text;
 	bool isEncrypted;
 
@@ -12,6 +13,7 @@ public:
 	PlainText(std::string text)
 	{
 		this->text = text;
+		numOfTexts++;
 	}
 	~PlainText() 
 	{
@@ -27,3 +29,5 @@ public:
 		return this->isEncrypted;
 	}
 };
+
+int PlainText::numOfTexts = 0;
