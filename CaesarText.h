@@ -16,6 +16,7 @@ public:
 
 	std::string encrypt();
 	std::string decrypt();
+	friend std::ostream& operator<<(std::ostream& os, const CaesarText& c);
 };
 
 

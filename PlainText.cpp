@@ -28,6 +28,11 @@ public:
 	{
 		return this->isEncrypted;
 	}
+	friend std::ostream& operator<<(std::ostream& os, const PlainText& p)
+	{
+		os << p.text;
+		return os;
+	}
 };
 
 int PlainText::numOfTexts = 0;

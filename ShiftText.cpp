@@ -63,5 +63,9 @@ public:
 		this->isEncrypted = false;
 		return decrypt(this->text, this->_key);
 	}
-
+	friend std::ostream& operator<<(std::ostream& os, const ShiftText& s)
+	{
+		os << "Shift\n" << s.text;
+		return os;
+	}
 };

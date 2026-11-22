@@ -37,4 +37,9 @@ public:
 		this->isEncrypted = true;
 		return encrypt(this->text, this->_key);
 	}
+	friend std::ostream& operator<<(std::ostream& os, const CaesarText& c) 
+	{
+		os << "Caesar\n" << c.text;
+		return os;
+	}
 };

@@ -71,4 +71,9 @@ public:
 		this->isEncrypted = false;
 		return decrypt(this->text, this->_dictionaryFileName);
 	}
+	friend std::ostream& operator<<(std::ostream& os, const SubstitutionText& s)
+	{
+		os << "Substitution\n" << s.text;
+		return os;
+	}
 };
