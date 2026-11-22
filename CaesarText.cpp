@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "CaesarText.h"
 #include "ShiftText.h"
 

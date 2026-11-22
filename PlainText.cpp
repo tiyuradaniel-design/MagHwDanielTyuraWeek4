@@ -1,5 +1,6 @@
 #include "PlainText.h"
 #include <iostream>
+#include <string>
 
 class PlainText
 {
